@@ -80,6 +80,7 @@ export interface PedAppearance {
   hair: PedHair;
   eyeColor: number;
   tattoos: TattooList;
+  walkStyle: string;
 }
 
 export interface PedSettings {
@@ -240,4 +241,13 @@ export interface TattooList {
 
 export interface TattoosSettings {
   items: TattooList;
+}
+
+export interface WalkStyle {
+  title: string;
+  value: string;
+}
+
+export interface WalkStylesSettings {
+  items: WalkStyle[];
 }

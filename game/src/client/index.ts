@@ -1,4 +1,4 @@
-import { Delay, isPedFreemodeModel, getPedStats, setPedStats } from './utils';
+import { Delay, isPedFreemodeModel, getPedStats, setPedStats, clipsetLookup } from './utils';
 
 import {
   FACE_FEATURES,
@@ -169,6 +169,7 @@ export function getPedAppearance(ped: number): PedAppearance {
     hair: getPedHair(ped),
     eyeColor: eyeColor < EYE_COLORS.length ? eyeColor : 0,
     tattoos: getPedTattoos(),
+    walkStyle: clipsetLookup(GetPedMovementClipset(ped)),
   };
 }
 
@@ -337,6 +338,7 @@ export async function setPlayerAppearance(appearance: PedAppearance): Promise<vo
     hair,
     eyeColor,
     tattoos,
+    walkStyle,
   } = appearance;
 
   await setPlayerModel(model);
@@ -370,13 +372,32 @@ export async function setPlayerAppearance(appearance: PedAppearance): Promise<vo
   if (tattoos) {
     setPedTattoos(playerPed, tattoos);
   }
+
+  if (walkStyle) {
+    console.log('Loading walk style:' + walkStyle);
+    ResetPedMovementClipset(playerPed, 0.0);
+    await Delay(500);
+    SetPedMovementClipset(playerPed, walkStyle, 1.0);
+  }
 }
 
-function setPedAppearance(ped: number, appearance: Omit<PedAppearance, 'model'>): void {
+async function setPedAppearance(
+  ped: number,
+  appearance: Omit<PedAppearance, 'model'>,
+): Promise<void> {
   if (!appearance) return;
 
-  const { components, props, headBlend, faceFeatures, headOverlays, hair, eyeColor, tattoos } =
-    appearance;
+  const {
+    components,
+    props,
+    headBlend,
+    faceFeatures,
+    headOverlays,
+    hair,
+    eyeColor,
+    tattoos,
+    walkStyle,
+  } = appearance;
 
   setPedComponents(ped, components);
 
@@ -404,6 +425,13 @@ function setPedAppearance(ped: number, appearance: Omit<PedAppearance, 'model'>)
 
   if (tattoos) {
     setPedTattoos(ped, tattoos);
+  }
+
+  if (walkStyle) {
+    console.log('Loading walk style:' + walkStyle);
+    ResetPedMovementClipset(ped, 0.0);
+    await Delay(500);
+    SetPedMovementClipset(ped, walkStyle, 1.0);
   }
 }
 

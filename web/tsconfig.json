@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -21,13 +17,9 @@
     "noEmit": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "jsx": "react-jsx", 
-    "types": ["react/next"]
+    "jsx": "react-jsx"
+    // "types": ["react/next"]
   },
-  "include": [
-    "src"
-  ], 
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

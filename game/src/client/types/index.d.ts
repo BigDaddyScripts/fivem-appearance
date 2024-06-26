@@ -97,6 +97,7 @@ interface PedAppearance {
   hair: PedHair;
   eyeColor: number;
   tattoos: TattooList;
+  walkStyle: string;
 }
 
 interface PedSettings {
