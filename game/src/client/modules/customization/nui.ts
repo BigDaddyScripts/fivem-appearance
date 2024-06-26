@@ -191,7 +191,7 @@ export function registerNuiCallbacks(): void {
     '__cfx_nui:appearance_change_walk_style',
     (walkStyle: string, cb: (arg: any) => void): void => {
       cb({});
-      console.log('Setting walk style:', walkStyle);
+      // console.log('Setting walk style:', walkStyle);
       SetPedMovementClipset(PlayerPedId(), walkStyle, 0.0);
     },
   );

@@ -201,7 +201,7 @@ const Appearance = () => {
 
       const updatedData = { ...data, walkStyle: value };
 
-      console.log('Walk Style Updated');
+      // console.log('Walk Style Updated');
 
       setData(updatedData);
 
