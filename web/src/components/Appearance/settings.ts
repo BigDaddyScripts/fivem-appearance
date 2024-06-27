@@ -116,6 +116,7 @@ export const APPEARANCE_INITIAL_STATE: PedAppearance = {
     highlight: 0,
   },
   eyeColor: 0,
+  walkStyle: 'move_m@multiplayer',
 };
 
 export const SETTINGS_INITIAL_STATE: AppearanceSettings = {

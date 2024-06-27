@@ -124,7 +124,7 @@
     "ear": "Ohren",
     "watches": "Uhren",
     "bracelets": "Armbänder"
-  }, 
+  },
   "tattoos": {
     "title": "Tattoos",
     "items": {
@@ -135,7 +135,10 @@
       "ZONE_LEFT_LEG": "Linkes Bein",
       "ZONE_RIGHT_LEG": "Rechtes Bein"
     },
-    "apply": "Bestätigen", 
+    "apply": "Bestätigen",
     "delete": "Löschen"
+  },
+  "walkstyle": {
+    "title": "Gangart"
   }
 }

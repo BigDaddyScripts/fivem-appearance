@@ -12,8 +12,8 @@
     "watch": "esbuild src/client/index.ts --bundle --external:./node_modules/* --format=iife --minify --platform=node --outdir=dist --watch"
   },
   "devDependencies": {
-    "@citizenfx/client": "^1.0.3432-1",
-    "@citizenfx/server": "^1.0.3432-1",
+    "@citizenfx/client": "latest",
+    "@citizenfx/server": "latest",
     "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",

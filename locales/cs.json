@@ -135,7 +135,10 @@
       "ZONE_LEFT_LEG": "Levá Noha",
       "ZONE_RIGHT_LEG": "Pravá Noha"
     },
-    "apply": "Potvrdit", 
+    "apply": "Potvrdit",
     "delete": "Vymazat"
+  },
+  "walkstyle": {
+    "title": "Chůze"
   }
 }

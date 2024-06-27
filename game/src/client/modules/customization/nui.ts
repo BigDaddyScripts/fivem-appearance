@@ -47,6 +47,7 @@ export function registerNuiCallbacks(): void {
   RegisterNuiCallbackType('appearance_delete_tattoo');
   RegisterNuiCallbackType('appearance_wear_clothes');
   RegisterNuiCallbackType('appearance_remove_clothes');
+  RegisterNuiCallbackType('appearance_change_walk_style');
 
   RegisterNuiCallbackType('appearance_save');
   RegisterNuiCallbackType('appearance_exit');
@@ -186,10 +187,24 @@ export function registerNuiCallbacks(): void {
     removeClothes(clothes);
   });
 
-  on('__cfx_nui:appearance_save', (appearance: PedAppearance, cb: (arg: any) => void): void => {
-    cb({});
-    exitPlayerCustomization(appearance);
-  });
+  on(
+    '__cfx_nui:appearance_change_walk_style',
+    (walkStyle: string, cb: (arg: any) => void): void => {
+      cb({});
+      // console.log('Setting walk style:', walkStyle);
+      SetPedMovementClipset(PlayerPedId(), walkStyle, 0.0);
+    },
+  );
+
+  on(
+    '__cfx_nui:appearance_save',
+    async (appearance: PedAppearance, cb: (arg: any) => void): Promise<void> => {
+      cb({});
+      exitPlayerCustomization(appearance);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      SetPedMovementClipset(PlayerPedId(), appearance.walkStyle, 0.0);
+    },
+  );
 
   on('__cfx_nui:appearance_exit', (_: any, cb: (arg: any) => void): void => {
     cb({});

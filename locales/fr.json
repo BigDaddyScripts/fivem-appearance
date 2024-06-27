@@ -135,8 +135,10 @@
       "ZONE_LEFT_LEG": "Jambe gauche",
       "ZONE_RIGHT_LEG": "Jambe droite"
     },
-    "apply": "Appliquer", 
+    "apply": "Appliquer",
     "delete": "Supprimer"
+  },
+  "walkstyle": {
+    "title": "Style de marche"
   }
 }
-

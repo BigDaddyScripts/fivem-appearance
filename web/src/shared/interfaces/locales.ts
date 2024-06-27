@@ -133,4 +133,7 @@ export default interface Locales {
     apply: string;
     delete: string;
   };
+  walkstyle: {
+    title: string;
+  };
 }
