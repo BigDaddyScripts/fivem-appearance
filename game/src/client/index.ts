@@ -375,6 +375,10 @@ export async function setPlayerAppearance(appearance: PedAppearance): Promise<vo
 
   if (walkStyle) {
     // console.log('Loading walk style:' + walkStyle);
+    RequestAnimDict(walkStyle);
+    while (!HasAnimDictLoaded(walkStyle)) {
+      await Delay(0);
+    }
     ResetPedMovementClipset(playerPed, 0.0);
     await Delay(500);
     SetPedMovementClipset(playerPed, walkStyle, 1.0);
@@ -429,6 +433,10 @@ async function setPedAppearance(
 
   if (walkStyle) {
     // console.log('Loading walk style:' + walkStyle);
+    RequestAnimDict(walkStyle);
+    while (!HasAnimDictLoaded(walkStyle)) {
+      await Delay(0);
+    }
     ResetPedMovementClipset(ped, 0.0);
     await Delay(500);
     SetPedMovementClipset(ped, walkStyle, 1.0);

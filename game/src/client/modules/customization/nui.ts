@@ -27,6 +27,7 @@ import {
   setPedComponent,
   setPedProp,
 } from '../../index';
+import { Delay } from '../../utils';
 
 export function registerNuiCallbacks(): void {
   RegisterNuiCallbackType('appearance_get_locales');
@@ -189,9 +190,14 @@ export function registerNuiCallbacks(): void {
 
   on(
     '__cfx_nui:appearance_change_walk_style',
-    (walkStyle: string, cb: (arg: any) => void): void => {
+    async (walkStyle: string, cb: (arg: any) => void): Promise<void> => {
       cb({});
       // console.log('Setting walk style:', walkStyle);
+      RequestAnimDict(walkStyle);
+      while (!HasAnimDictLoaded(walkStyle)) {
+        await Delay(0);
+      }
+      ResetPedMovementClipset(PlayerPedId(), 0.0);
       SetPedMovementClipset(PlayerPedId(), walkStyle, 0.0);
     },
   );
@@ -202,6 +208,10 @@ export function registerNuiCallbacks(): void {
       cb({});
       exitPlayerCustomization(appearance);
       await new Promise(resolve => setTimeout(resolve, 1000));
+      RequestAnimDict(appearance.walkStyle);
+      while (!HasAnimDictLoaded(appearance.walkStyle)) {
+        await Delay(0);
+      }
       SetPedMovementClipset(PlayerPedId(), appearance.walkStyle, 0.0);
     },
   );
