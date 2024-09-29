@@ -143,19 +143,19 @@ export function getAppearanceSettings(): AppearanceSettings {
   const headBlend: HeadBlendSettings = {
     shapeFirst: {
       min: 0,
-      max: 45,
+      max: 91,
     },
     shapeSecond: {
       min: 0,
-      max: 45,
+      max: 91,
     },
     skinFirst: {
       min: 0,
-      max: 45,
+      max: 91,
     },
     skinSecond: {
       min: 0,
-      max: 45,
+      max: 91,
     },
     shapeMix: {
       min: 0,
